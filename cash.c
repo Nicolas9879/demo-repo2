@@ -3,7 +3,6 @@
 #include <math.h>
 int main(void)
 {
-    // Ask for change owed
     float dollars;
     do
     {
@@ -13,6 +12,8 @@ int main(void)
 
     int change = round(dollars * 100);
     int coins;
+
+    // Minimum number of coins with which that change can be made
 
     // quarter = 25, dime = 10, nickel = 5, penny = 1
 
@@ -32,6 +33,6 @@ int main(void)
     {
         change = change - 1;
     }
-  
+
     printf( "%i\n", coins);
 }
