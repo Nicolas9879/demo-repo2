@@ -1,0 +1,166 @@
+
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+
+{
+long card_number;
+    do
+    {
+        card_number = get_long("Number: ");
+    }
+    while (card_number < 4000000000000);
+
+
+    // Digits
+
+    // Divisions
+         long d1 = card_number / 10;
+         long d2 = d1 / 10;
+         long d3 = d2 / 10;
+         long d4 = d3 / 10;
+         long d5 = d4 / 10;
+         long d6 = d5 / 10;
+         long d7 = d6 / 10;
+         long d8 = d7 / 10;
+         long d9 = d8 / 10;
+         long d10 = d9 / 10;
+         long d11 = d10 / 10;
+         long d12 = d11 / 10;
+         long d13 = d12 / 10;
+         long d14 = d13 / 10;
+         long d15 = d14 / 10;
+
+     // Digits left to right <----
+        long digit_1 = card_number % 10;
+        long digit_2 = d1 % 10;
+        long digit_3 = d2 % 10;
+        long digit_4 = d3 % 10;
+        long digit_5 = d4 % 10;
+        long digit_6 = d5 % 10;
+        long digit_7 = d6 % 10;
+        long digit_8 = d7 % 10;
+        long digit_9 = d8 % 10;
+        long digit_10 = d9 % 10;
+        long digit_11 = d10 % 10;
+        long digit_12 = d11 % 10;
+        long digit_13 = d12 % 10;
+        long digit_14 = d13 % 10;
+        long digit_15 = d14 % 10;
+        long digit_16 = d15 % 10;
+
+
+    // Multiplication
+      long m1 = digit_2 * 2;
+      long m2 = digit_4 * 2;
+      long m3 = digit_6 * 2;
+      long m4 = digit_8 * 2;
+      long m5 = digit_10 * 2;
+      long m6 = digit_12 * 2;
+      long m7 = digit_14 * 2;
+      long m8 = digit_16 * 2;
+
+      // Addition
+
+      // Check if there is a digit greater than 9
+      long nd2 = 0, nd4 = 0, nd6 = 0, nd8 = 0, nd10 = 0, nd12 = 0, nd14 = 0, nd16 = 0;
+
+      if (m1 > 9)
+      {
+         nd2 = m1 / 10;
+         m1 = m1 % 10;
+      }
+
+      if (m2 > 9)
+      {
+         nd4 = m2 / 10;
+         m2 = m2 % 10;
+      }
+
+      if (m3 > 9)
+      {
+            nd6 = m3 / 10;
+            m3 = m3 % 10;
+      }
+
+      if (m4 > 9)
+      {
+            nd8 = m4 / 10;
+            m4 = m4 % 10;
+      }
+
+      if (m5 > 9)
+      {
+            nd10 = m5 / 10;
+            m5 = m5 % 10;
+      }
+
+      if (m6 > 9)
+      {
+            nd12 = m6 / 10;
+            m6 = m6 % 10;
+      }
+
+      if (m7 > 9)
+      {
+             nd14 = m7 / 10;
+             m7 = m7 % 10;
+      }
+
+      if (m8 > 9)
+      {
+            nd16 = m8 / 10;
+            m8 = m8 % 10;
+
+      }
+
+      // Addition 1
+
+      long addition = m1 + m2 + m3 + m4 + m5 + m6 + m7 + m8 + nd2 + nd4 + nd6 + nd8 + nd10 + nd12 + nd14 + nd16;
+
+      // Add the other digits
+
+      long final_addition = addition + digit_1 + digit_3 + digit_5 + digit_7 + digit_9 + digit_11 + digit_13 + digit_15;
+
+      // Legit or not
+
+      if (final_addition > 9)
+      {
+          final_addition = final_addition % 10;
+      }
+
+      if (final_addition == 0)
+      {
+           if (card_number > 4000000000000000 && card_number < 4999999999999999)
+
+           {
+               printf("VISA\n");
+           }
+
+           if (card_number > 4000000000000 && card_number < 4999999999999)
+           {
+               printf("VISA\n");
+           }
+
+           if (card_number > 5100000000000000  && card_number < 5599999999999000)
+           {
+               printf("MASTERCARD\n");
+
+           }
+
+           if (card_number > 340000000000000   && card_number < 379999999999999)
+           {
+               printf("AMEX\n");
+
+           }
+      }
+
+      else
+      {
+          printf("INVALID\n"); 
+      }
+
+
+
+}
